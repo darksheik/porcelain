@@ -4,12 +4,7 @@ defmodule Porcelain.App do
   use Application
 
   def start(_, _) do
-    case Porcelain.Init.init() do
-      :ok ->
-        # dummy supervisor
-        opts = [strategy: :one_for_one, name: Porcelain.Supervisor]
-        Supervisor.start_link([], opts)
-      other -> other
-    end
+    opts = [strategy: :one_for_one, name: Porcelain.Supervisor]
+    Porcelain.Supervisor.start_link([])
   end
 end
