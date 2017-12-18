@@ -14,5 +14,7 @@ defmodule Porcelain.Supervisor do
       :ok -> {:ok, porcelain}
       other -> other
     end
+
+    Supervisor.init([], strategy: :one_for_one)
   end
 end
